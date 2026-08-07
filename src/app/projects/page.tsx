@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { FiExternalLink } from "react-icons/fi";
 
 const featuredProjects = [
@@ -33,20 +32,18 @@ const featuredProjects = [
 
 export default function ProjectsPage() {
   return (
-    <div className="min-h-screen bg-[#040712] text-white">
-      <Header />
-
+    <div className="min-h-screen bg-transparent text-white">
       <main className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
-          <div className="space-y-6">
-            <div className="inline-flex rounded-full bg-violet-500/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-violet-300 ring-1 ring-violet-300/20">
+        <section className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+          <div className="space-y-6 page-text-animate" style={{ "--delay": "0.05s" } as React.CSSProperties}>
+            <div className="inline-flex rounded-full bg-violet-500/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-violet-300 ring-1 ring-violet-300/20 page-text-animate" style={{ "--delay": "0.05s" } as React.CSSProperties}>
               Featured work
             </div>
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl page-text-animate" style={{ "--delay": "0.1s" } as React.CSSProperties}>
                 Projects that shine with clean design and real impact.
               </h1>
-              <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+              <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg page-text-animate" style={{ "--delay": "0.15s" } as React.CSSProperties}>
                 Explore a curated selection of web applications built for performance, usability, and modern brand experiences.
               </p>
             </div>
@@ -63,8 +60,8 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          <div className="space-y-6 rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl">
-            <div className="rounded-[1.75rem] border border-white/10 bg-slate-900/80 p-6 shadow-inner shadow-black/15">
+          <div className="space-y-6 rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl page-text-animate" style={{ "--delay": "0.2s" } as React.CSSProperties}>
+            <div className="rounded-[1.75rem] border border-white/10 bg-slate-900/80 p-6 shadow-inner shadow-black/15 page-text-animate" style={{ "--delay": "0.25s" } as React.CSSProperties}>
               <p className="text-sm uppercase tracking-[0.24em] text-violet-300">Project insights</p>
               <h2 className="mt-2 text-2xl font-semibold text-white">High-value builds</h2>
               <p className="mt-4 text-sm leading-7 text-slate-300">

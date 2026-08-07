@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { motion } from "framer-motion";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -31,7 +31,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <div className="text-[#8b5cf6] font-bold text-lg sm:text-xl flex items-center">
               <span className="mr-1">{"</>"}</span>
-              <span className="text-white">CodeCraft</span>
+              <span className="text-white">BuiltByYuva</span>
             </div>
           </div>
 
@@ -58,20 +58,32 @@ export default function Header() {
           </button>
 
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition-colors pb-1 ${
-                  isActive(link.href)
-                    ? "text-white border-b-2 border-[#8b5cf6]"
-                    : "text-gray-400 hover:text-white"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+  {navLinks.map((link) => (
+    <Link
+      key={link.href}
+      href={link.href}
+      className={`relative pb-2 text-sm font-medium transition-colors duration-300 ${
+        isActive(link.href)
+          ? "text-white"
+          : "text-gray-400 hover:text-white"
+      }`}
+    >
+      {link.label}
+
+      {isActive(link.href) && (
+        <motion.span
+          layoutId="active-nav"
+          className="absolute left-0 bottom-0 h-[2px] w-full rounded-full bg-purple-500"
+          transition={{
+            type: "spring",
+            stiffness: 500,
+            damping: 35,
+          }}
+        />
+      )}
+    </Link>
+  ))}
+</nav>
 
           <div className="hidden md:flex items-center">
             <Link
@@ -104,7 +116,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`block rounded-xl px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`block rounded-xl px-3 py-2 text-sm font-medium transition-all duration-300 ease-out ${
                     isActive(link.href)
                       ? "bg-[#8b5cf6]/10 text-white"
                       : "text-gray-300 hover:bg-white/5 hover:text-white"
