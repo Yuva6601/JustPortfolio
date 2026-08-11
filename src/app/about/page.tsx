@@ -1,89 +1,117 @@
-export default function AboutPage() {
-  return (
-    <div className="min-h-screen bg-transparent text-white">
-      <main className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
-          <section className="space-y-8 page-text-animate" style={{ "--delay": "0.05s" } as React.CSSProperties}>
-            <div className="inline-flex rounded-full bg-violet-500/10 px-4 py-2 text-xs uppercase tracking-[0.32em] text-violet-300 shadow-sm ring-1 ring-violet-300/20 page-text-animate" style={{ "--delay": "0.05s" } as React.CSSProperties}>
-              About Me
-            </div>
-            <div className="space-y-4">
-              <p className="text-sm uppercase tracking-[0.32em] text-slate-400 page-text-animate" style={{ "--delay": "0.1s" } as React.CSSProperties}>A creative digital partner</p>
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl page-text-animate" style={{ "--delay": "0.15s" } as React.CSSProperties}>
-                Building premium web experiences with modern UI and strong performance.
-              </h1>
-              <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg page-text-animate" style={{ "--delay": "0.2s" } as React.CSSProperties}>
-                I’m a software engineer focused on creating user-focused web products that feel polished, responsive, and fast. My work combines strong visual design with reliable engineering and thoughtful frontend architecture.
-              </p>
-            </div>
+"use client";
 
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl">
-                <p className="text-sm text-slate-400">Years Experience</p>
-                <p className="mt-3 text-3xl font-semibold text-white">4+</p>
+import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
+import { FiArrowRight } from "react-icons/fi";
+import AnimatedSection from "@/components/AnimatedSection";
+import GlassCard from "@/components/ui/GlassCard";
+import SectionHeader from "@/components/ui/SectionHeader";
+import { stats } from "@/lib/data";
+
+const highlights = [
+  {
+    title: "Frontend Engineering",
+    description: "React, Next.js, TypeScript, and Tailwind — building responsive, accessible interfaces.",
+  },
+  {
+    title: "Backend Development",
+    description: "Python, Node.js, Django, FastAPI — APIs, databases, and scalable server architecture.",
+  },
+  {
+    title: "Cloud & DevOps",
+    description: "AWS, Azure, GitHub — deployment pipelines and cloud-native solutions.",
+  },
+];
+
+const strengths = [
+  { label: "Frontend Development", width: "90%" },
+  { label: "Backend & APIs", width: "85%" },
+  { label: "UI/UX Design", width: "80%" },
+];
+
+export default function AboutPage() {
+  const prefersReducedMotion = useReducedMotion();
+
+  return (
+    <div className="min-h-screen">
+      <main className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-28 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <section className="space-y-8">
+            <SectionHeader
+              badge="About Me"
+              title="Building premium web experiences with modern UI and strong performance."
+              description="I'm a software engineer focused on creating user-centered web products that feel polished, responsive, and fast. My work combines strong visual design with reliable engineering."
+            />
+
+            <AnimatedSection delay={0.1}>
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                {stats.slice(0, 2).map((stat, i) => (
+                  <GlassCard key={stat.label} delay={i * 0.05}>
+                    <p className="text-xs text-slate-400 sm:text-sm">{stat.label}</p>
+                    <p className="mt-2 text-2xl font-bold text-white sm:text-3xl">{stat.value}</p>
+                  </GlassCard>
+                ))}
               </div>
-              <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl">
-                <p className="text-sm text-slate-400">Projects Completed</p>
-                <p className="mt-3 text-3xl font-semibold text-white">15+</p>
-              </div>
-            </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.15}>
+              <motion.div whileHover={prefersReducedMotion ? undefined : { scale: 1.02 }} whileTap={prefersReducedMotion ? undefined : { scale: 0.98 }}>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-500/20"
+                >
+                  Work with me
+                  <FiArrowRight className="h-4 w-4" />
+                </Link>
+              </motion.div>
+            </AnimatedSection>
           </section>
 
-          <aside className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-2xl shadow-black/30 backdrop-blur-xl sm:p-6 page-text-animate" style={{ "--delay": "0.25s" } as React.CSSProperties}>
-            <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-sky-500/10" />
-            <div className="relative flex h-full flex-col gap-6 page-text-animate" style={{ "--delay": "0.3s" } as React.CSSProperties}>
-              <div className="flex shrink-0 items-center gap-4 rounded-[1.75rem] bg-slate-950/90 p-5 shadow-xl shadow-black/25">
-                <div className="flex h-16 w-16 items-center justify-center rounded-3xl bg-[#8b5cf6]/20 text-[#8b5cf6]">
-                  <span className="text-2xl font-bold">Y</span>
-                </div>
+          <aside className="space-y-5 sm:space-y-6">
+            <GlassCard className="relative overflow-hidden" delay={0.05}>
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/5" />
+              <div className="relative flex items-center gap-4">
+                <motion.div
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl bg-violet-500/20 text-xl font-bold text-violet-400 sm:h-16 sm:w-16 sm:text-2xl"
+                  animate={prefersReducedMotion ? undefined : { rotate: [0, 3, -3, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  Y
+                </motion.div>
                 <div>
-                  <p className="text-sm uppercase tracking-[0.22em] text-violet-300">Yuvanesh</p>
-                  <p className="mt-1 text-lg font-semibold text-white">Product UI Designer</p>
+                  <p className="text-xs uppercase tracking-[0.15em] text-violet-400 sm:text-sm">Yuvanesh</p>
+                  <p className="text-base font-semibold text-white sm:text-lg">Software Engineer</p>
+                  <p className="text-sm text-slate-400">Chennai, India</p>
                 </div>
               </div>
+            </GlassCard>
 
-              <div className="rounded-[1.5rem] border border-white/10 bg-slate-950/90 p-6 shadow-xl shadow-black/25">
-                <div className="mb-5 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-3xl bg-white/5 p-4 text-center text-sm text-slate-200">
-                    <span className="block text-3xl font-semibold">95%</span>
-                    <span className="mt-2 block text-slate-400">UI Accuracy</span>
-                  </div>
-                  <div className="rounded-3xl bg-white/5 p-4 text-center text-sm text-slate-200">
-                    <span className="block text-3xl font-semibold">88%</span>
-                    <span className="mt-2 block text-slate-400">Client Retention</span>
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-sm text-slate-400">Design System</span>
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
-                      <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-[#6366f1] to-[#8b5cf6]" />
+            {highlights.map((item, i) => (
+              <GlassCard key={item.title} hover delay={0.1 + i * 0.08}>
+                <h3 className="font-semibold text-white">{item.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-400">{item.description}</p>
+              </GlassCard>
+            ))}
+
+            <GlassCard delay={0.35}>
+              <p className="text-sm text-slate-400">Core strengths</p>
+              <div className="mt-4 space-y-4">
+                {strengths.map((skill, i) => (
+                  <div key={skill.label}>
+                    <span className="text-sm text-slate-300">{skill.label}</span>
+                    <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/10">
+                      <motion.div
+                        className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-500"
+                        initial={prefersReducedMotion ? { width: skill.width } : { width: 0 }}
+                        whileInView={{ width: skill.width }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: 0.2 + i * 0.15, ease: [0.22, 1, 0.36, 1] }}
+                      />
                     </div>
                   </div>
-                  <div>
-                    <span className="text-sm text-slate-400">Front-end Delivery</span>
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
-                      <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-[#22d3ee] to-[#2563eb]" />
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
-
-              <div className="grid gap-3 rounded-[1.5rem] bg-slate-950/90 p-5 text-sm text-slate-200 shadow-xl shadow-black/25">
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <span>Branding</span>
-                  <span>91%</span>
-                </div>
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <span>Prototyping</span>
-                  <span>87%</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span>Interaction</span>
-                  <span>94%</span>
-                </div>
-              </div>
-            </div>
+            </GlassCard>
           </aside>
         </div>
       </main>
