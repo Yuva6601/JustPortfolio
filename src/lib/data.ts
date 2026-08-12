@@ -92,15 +92,15 @@ export const projects: Project[] = [
 
   {
     id: 3,
-    name: "CRUD Dashboard",
-    category: "Admin Dashboard",
+    name: "Speech To Text App",
+    category: "Productivity",
     description:
-      "Dynamic admin dashboard for creating, managing, updating, and deleting records with a clean interface and organized data views.",
+      "Speech-to-text application for converting spoken language into written text with real-time transcription and editing capabilities.",
     accent: "03",
-    highlight: "Data Management",
-    tags: ["React", "Python", "FastAPI"],
+    highlight: "Text Conversion",
+    tags: ["Python", "Flask"],
     gradient: "from-emerald-600/40 to-teal-600/20",
-    link: "https://mern-stack-crud-front.vercel.app/"
+    link: "https://speech-to-text-ten-xi.vercel.app"
   },
 ];
 
