@@ -69,14 +69,21 @@ export default function ProjectsPage() {
 
                 <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
                   <span className="text-sm font-medium text-white">{project.highlight}</span>
-                  <motion.button
-                    type="button"
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-violet-400"
-                    aria-label={`View ${project.name}`}
-                    whileHover={prefersReducedMotion ? undefined : { scale: 1.08, borderColor: "rgba(139,92,246,0.4)", color: "#fff" }}
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-violet-400 transition"
+                    aria-label={`View ${project.name} in a new tab`}
                   >
-                    <FiExternalLink className="h-4 w-4" />
-                  </motion.button>
+                    <motion.span
+                      className="flex h-full w-full items-center justify-center"
+                      whileHover={prefersReducedMotion ? undefined : { scale: 1.08, color: "#fff" }}
+                      transition={{ duration: 0.35 }}
+                    >
+                      <FiExternalLink className="h-4 w-4" />
+                    </motion.span>
+                  </a>
                 </div>
               </div>
             </GlassCard>

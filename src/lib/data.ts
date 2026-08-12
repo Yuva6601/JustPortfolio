@@ -60,38 +60,47 @@ export type Project = {
   highlight: string;
   tags: string[];
   gradient: string;
+  link?: string;
 };
 
 export const projects: Project[] = [
   {
     id: 1,
-    name: "E-Commerce Platform",
-    category: "Web App",
-    description: "Premium shopping experience with product filters, cart flows, and a polished checkout journey.",
+    name: "Income Tracker App",
+    category: "Finance",
+    description:
+      "Personal finance management app for tracking income, expenses, transactions, and spending insights with interactive analytics.",
     accent: "01",
-    highlight: "Modern UI/UX",
-    tags: ["Next.js", "React", "Tailwind"],
+    highlight: "Personal Finance",
+    tags: ["React", "Node.js", "MongoDB"],
     gradient: "from-violet-600/40 to-fuchsia-600/20",
+    link: "https://incomeexpenseapi.vercel.app/"
   },
+
   {
     id: 2,
-    name: "Task Management App",
-    category: "Productivity",
-    description: "Team collaboration tool with kanban boards, analytics dashboards, and real-time updates.",
+    name: "Workout Planner App",
+    category: "Health & Fitness",
+    description:
+      "Workout planning application to organize exercises, track daily routines, monitor progress, and maintain consistent fitness goals.",
     accent: "02",
-    highlight: "Workflow System",
-    tags: ["React", "Node.js", "MongoDB"],
+    highlight: "Fitness Planning",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
     gradient: "from-cyan-600/40 to-blue-600/20",
+    link: "https://workout-buddy-app-delta.vercel.app"
   },
+
   {
     id: 3,
-    name: "Crypto Dashboard",
-    category: "Dashboard",
-    description: "Real-time market insights with interactive charts and portfolio tracking.",
+    name: "CRUD Dashboard",
+    category: "Admin Dashboard",
+    description:
+      "Dynamic admin dashboard for creating, managing, updating, and deleting records with a clean interface and organized data views.",
     accent: "03",
-    highlight: "Analytics Suite",
-    tags: ["TypeScript", "Python", "FastAPI"],
+    highlight: "Data Management",
+    tags: ["React", "Python", "FastAPI"],
     gradient: "from-emerald-600/40 to-teal-600/20",
+    link: "https://mern-stack-crud-front.vercel.app/"
   },
 ];
 

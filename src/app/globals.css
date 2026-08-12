@@ -101,14 +101,17 @@ body {
   }
 }
 
-@keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 0.4;
+@keyframes shrink {
+  from {
+    width: 100%;
   }
-  50% {
-    opacity: 0.8;
+  to {
+    width: 0%;
   }
+}
+
+.animate-shrink {
+  animation: shrink 4s linear forwards;
 }
 
 .animate-tech-loop {
