@@ -7,6 +7,10 @@
   --accent-secondary: #6366f1;
   --surface: rgba(255, 255, 255, 0.04);
   --border: rgba(255, 255, 255, 0.1);
+  --font-inter: ui-sans-serif, system-ui, sans-serif;
+  --font-jetbrains: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
 }
 
 @theme inline {
