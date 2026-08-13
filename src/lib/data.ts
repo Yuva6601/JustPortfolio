@@ -74,7 +74,7 @@ export const projects: Project[] = [
     highlight: "Personal Finance",
     tags: ["React", "Node.js", "MongoDB"],
     gradient: "from-violet-600/40 to-fuchsia-600/20",
-    link: "https://incomeexpenseapi.vercel.app/"
+    link: "https://mern-stack-i-e-ralx.vercel.app/"
   },
 
   {
